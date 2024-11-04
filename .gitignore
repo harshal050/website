@@ -1,0 +1,12 @@
+node_modules
+.docusaurus
+.DS_Store
+.env
+.vscode/settings.json
+.tmp/
+build/
+content/
+i18n/
+!i18n/en/
+!i18n/README.md
+docs/v**

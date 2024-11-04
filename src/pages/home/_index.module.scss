@@ -1,0 +1,103 @@
+summary {
+  font-weight: bold;
+}
+
+.section {
+  &:first-of-type {
+    padding-top: 4rem;
+  }
+
+  &:last-of-type {
+    padding-bottom: 8rem;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    font-weight: 900;
+  }
+
+  h3 {
+    font-size: 1.6em;
+    font-weight: 700;
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 3rem 2rem;
+  }
+
+  padding: 4rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.paragraphCenter {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.accentBackground {
+  background: var(--ifm-code-background);
+}
+
+.blurb {
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+.explore {
+  display: flex;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 12rem;
+
+  .button {
+    margin-bottom: 1rem;
+  }
+
+  img {
+    box-shadow: var(--ifm-global-shadow-tl);
+    border-radius: 5px;
+  }
+}
+
+.exploreSubtext {
+  text-transform: uppercase;
+}
+
+.heroElectron {
+  color: var(--electron-color-light);
+  background: var(--electron-color-dark);
+  padding: 0 2rem 4rem;
+  border-bottom: 5px solid var(--electron-color-light);
+  position: relative;
+  box-shadow: 0px 0px 30px 0px #00ffff55;
+}
+
+.heroHeadline {
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 200;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  text-align: center;
+}
+
+.codeComment {
+  color: #719fad;
+}
+
+.blurb2 {
+  margin: 1rem;
+  padding: 1.2rem;
+}

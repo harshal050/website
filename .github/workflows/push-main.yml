@@ -1,0 +1,38 @@
+name: Push and publish main
+
+on:
+  schedule:
+    # twice a day at midnight and noon
+    - cron: '0 0,12 * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: publish
+
+jobs:
+  # Make a reusable workflow
+  crowdin-upload:
+    name: Upload to Crowdin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # tag: v4.2.2
+      - uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # tag: v4.0.4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        uses: bahmutov/npm-install@dc9579d3dfb9c0e7a1f56c194eefcb8e2c9f0da5 # tag: v1.10.3
+      - name: Upload sources to Crowdin
+        run: 'yarn i18n:upload'
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+  build-and-deploy:
+    uses: electron/website/.github/workflows/build-and-deploy.yml@main
+    permissions:
+      actions: read
+    with:
+      branch: main
+    secrets:
+      SAS: ${{ secrets.SAS }}
